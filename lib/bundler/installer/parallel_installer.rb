@@ -58,7 +58,7 @@ module Bundler
           missing = deps.reject {|dep| all_spec_names.include? dep.name }
           unless missing.empty?
             raise Bundler::LockfileError, "Your Gemfile.lock is corrupt. The following #{missing.size > 1 ? "gems are" : "gem is"} missing " \
-                                "from the DEPENDENCIES section: '#{missing.map(&:name).join('\' \'')}'"
+                                "from the DEPENDENCIES section for #{@spec.full_name}: '#{missing.map(&:name).join("', '")}'"
           end
           deps
         end
