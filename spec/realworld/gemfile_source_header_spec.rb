@@ -23,7 +23,7 @@ describe "fetching dependencies with a mirrored source", :realworld => true, :ru
       gem 'weakling'
     G
 
-    bundle :install
+    bundle :install, :artifice => nil
 
     expect(out).to include("Installing weakling")
     expect(out).to include("Bundle complete")
